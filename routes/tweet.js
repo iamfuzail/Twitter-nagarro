@@ -1,17 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const {
-  authenticateGoogle,
-  authenticateGoogleCallback,
-  logOut,
-  signUp,
-  login,
-} = require("../controller/auth");
 
-router.get("/google", authenticateGoogle);
-router.get("/google/callback", authenticateGoogleCallback);
-router.get("/logout", logOut);
-router.post("/signup", signUp);
-router.post("/login", login);
+const {
+  createPost,
+  likePost,
+  deletePost
+} = require("../controller/tweet");
+
+router.post("/", createPost);
+router.post("/like", likePost);
+router.post("/delete", deletePost);
 
 module.exports = router;
